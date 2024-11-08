@@ -1,0 +1,33 @@
+version: 0.0
+os: linux
+
+# This section defines the files that should be copied to the instance during deployment
+files:
+  - source: /    # Root directory where your app files are located (local repository)
+    destination: /home/ec2-user/nginx-app   # Destination on the EC2 instance
+
+# Hooks are used to specify commands that need to be run during deployment
+hooks:
+  # Before install, you can prepare the environment if needed
+  BeforeInstall:
+    - location: scripts/pre_install.sh
+      timeout: 180
+      runas: root
+
+  # After install, we typically start or restart services like Nginx
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 180
+      runas: root
+
+  # After the deployment finishes, you can clean up or notify services
+  ApplicationStart:
+    - location: scripts/start_application.sh
+      timeout: 180
+      runas: root
+
+  # After deployment, perform any final checks
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 180
+      runas: ec2-user
