@@ -1,37 +1,25 @@
 #!/bin/bash
 
-# install_nginx.sh
+# Ensure the system package list is up-to-date
+echo "Updating system package list..."
+sudo yum update -y
 
-# This script installs NGINX on a Linux-based system (Ubuntu/Debian)
-# and starts the service.
+# Install Nginx
+echo "Installing Nginx..."
+sudo yum install nginx -y
 
-# Step 1: Update system packages
-echo "Updating system packages..."
-sudo apt update -y
-
-# Step 2: Install NGINX
-echo "Installing NGINX..."
-sudo apt install nginx -y
-
-# Step 3: Enable NGINX to start on boot
-echo "Enabling NGINX to start on boot..."
-sudo systemctl enable nginx
-
-# Step 4: Start the NGINX service
-echo "Starting NGINX service..."
+# Start and enable Nginx to run on boot
+echo "Starting Nginx service..."
 sudo systemctl start nginx
 
-# Step 5: Check the status of NGINX
-echo "Checking NGINX service status..."
+# Enable Nginx to start on boot
+echo "Enabling Nginx to start on boot..."
+sudo systemctl enable nginx
+
+# Check if Nginx is running
+echo "Checking Nginx status..."
 sudo systemctl status nginx
 
-# Step 6: Open port 80 and 443 in the firewall (if UFW is enabled)
-echo "Opening ports 80 and 443 in firewall..."
-sudo ufw allow 'Nginx Full'
+# Provide a message about testing the installation
+echo "Nginx installation completed successfully. You can test it by navigating to your server's IP address in a web browser."
 
-# Step 7: Verify installation and test the web server
-echo "Verifying NGINX installation..."
-curl -I localhost
-
-echo "NGINX installation completed!"
-echo "You should now be able to access the default NGINX page by going to http://localhost or http://<your-server-ip> in a browser."
