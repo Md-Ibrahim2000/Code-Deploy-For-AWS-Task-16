@@ -1,0 +1,68 @@
+# appsec.yml: Simple Application Security Configuration
+
+# General settings
+app_name: my-web-application
+env: production
+version: 1.0.0
+
+# Security features enabled
+features:
+  - static_code_analysis: true
+  - dynamic_analysis: true
+  - dependency_scanning: true
+  - secret_detection: true
+  - vulnerability_scanning: true
+
+# Alerting settings
+alerts:
+  severity_levels:
+    - critical
+    - high
+    - medium
+  send_email_notifications: true
+  email_recipients:
+    - security@example.com
+    - devops@example.com
+
+# Scanning configurations
+static_code_analysis:
+  enabled: true
+  languages: 
+    - python
+    - javascript
+    - java
+  ruleset: default
+
+dynamic_analysis:
+  enabled: true
+  target_url: https://my-application.example.com
+  scan_frequency: daily
+
+dependency_scanning:
+  enabled: true
+  include_dev_dependencies: false
+  check_vulnerabilities: true
+
+secret_detection:
+  enabled: true
+  sensitive_keywords:
+    - "password"
+    - "api_key"
+    - "secret"
+
+# Logging and reporting
+logging:
+  level: info
+  output_file: appsec_logs.json
+
+# Custom security rules
+custom_rules:
+  - name: "Block External IPs"
+    action: block
+    ip_range: 192.168.1.0/24
+
+
+
+
+
+
