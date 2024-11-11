@@ -1,14 +1,22 @@
 version: 0.2
+
 phases:
   install:
-    runtime-versions:
-      nodejs: 14
+    commands:
+      # Install any dependencies needed for the build (e.g., Node.js, npm)
+      - echo "Installing dependencies"
+      - npm install
+
   build:
     commands:
-      - npm install
+      # Run your build command (e.g., npm run build)
+      - echo "Running build"
       - npm run build
+
 artifacts:
   files:
-    - '**/*'
+    # List the files or directories to be included as build artifacts
+    - '**/*'   # Include all files in the current directory and subdirectories
+
 
 
