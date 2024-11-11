@@ -3,20 +3,19 @@ version: 0.2
 phases:
   install:
     commands:
-      # Install any dependencies needed for the build (e.g., Node.js, npm)
       - echo "Installing dependencies"
-      - npm install
+      - npm install   # This assumes package.json is in the root directory
 
   build:
     commands:
-      # Run your build command (e.g., npm run build)
       - echo "Running build"
-      - npm run build
+      - npm run build  # Or any other build command defined in your package.json
 
 artifacts:
   files:
-    # List the files or directories to be included as build artifacts
-    - '**/*'   # Include all files in the current directory and subdirectories
+    - '**/*'  # This will include all files in the build output directory
+
+
 
 
 
