@@ -1,24 +1,12 @@
 version: 0.2
 
 phases:
-  install:
-    runtime-versions:
-      nodejs: 18  # Specify the runtime version (optional)
-    commands:
-      - echo "Installing dependencies"
-      - npm install --verbose  # Or other commands to install dependencies
   build:
     commands:
-      - echo "Building the application"
-      - npm run build  # Or your build command
-  post_build:
-    commands:
-      - echo "Build completed"
-      - ls -la  # Optional: list files for debugging
-artifacts:
-  files:
-    - '**/*'  # This will include all files in the output
-  base-directory: build  # Specify the directory where the build artifacts are located (optional)
+      - echo "Building Nginx app"
+      - sudo cp index.html /usr/share/nginx/html/
+      - sudo systemctl restart nginx
+
 
 
 
