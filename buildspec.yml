@@ -1,16 +1,9 @@
 version: 0.2
 
 phases:
-  install:
-    commands:
-      - echo "Starting install phase"
   build:
     commands:
-      - echo "Listing files in the build directory"
-      - ls -l
-      - echo "Building Nginx app"
-      - sudo cp -f index.html /usr/share/nginx/html/
-      - sudo systemctl restart nginx
+      # - echo "Hello World"
 
 
 
