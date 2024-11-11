@@ -3,7 +3,7 @@
 # General settings
 app_name: my-web-application
 env: production
-version: 1.0.0
+version: 0.2
 
 # Security features enabled
 features:
