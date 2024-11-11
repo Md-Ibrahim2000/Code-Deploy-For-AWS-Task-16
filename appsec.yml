@@ -3,10 +3,10 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 16  # Specify the runtime version (optional)
+      nodejs: 18  # Specify the runtime version (optional)
     commands:
       - echo "Installing dependencies"
-      - npm install  # Or other commands to install dependencies
+      - npm install --verbose  # Or other commands to install dependencies
   build:
     commands:
       - echo "Building the application"
